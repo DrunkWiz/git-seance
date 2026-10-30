@@ -211,7 +211,7 @@ def ollama_stream(prompt: str):
 
 
 def openai_stream(prompt: str):
-    """Any OpenAI-compatible gateway, e.g. SoCLaaS serving an open-weight Qwen."""
+    """Any OpenAI-compatible /chat/completions gateway serving an open-weight model."""
     req = urllib.request.Request(
         f"{API_BASE}/chat/completions",
         data=json.dumps({"model": MODEL, "stream": True, "messages": [
