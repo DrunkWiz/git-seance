@@ -10,6 +10,21 @@ commit that killed it. With no model reachable it falls back to an offline
 
 One file, Python standard library only, no runtime dependencies.
 
+![git seance summoning set_http_proxy from psf/requests](docs/demo.gif)
+
+*A real run on psf/requests with gemma3:4b on a laptop CPU; long pauses
+trimmed. [MP4 version](docs/demo.mp4).*
+
+## Why an open model
+
+Your git history is your team's private diary: names, dates, half-finished
+ideas, the commit messages people wrote at 2am. git seance reads all of it, so
+it should not have to leave your machine. With an open-weight model like Gemma
+running locally through Ollama, the whole seance happens on your laptop: no API
+key, no account, no usage bill, and it works on a private repo on a plane. It
+also means anyone can audit, swap or fine-tune the medium. And if no model is
+around at all, planchette mode still tells you the facts.
+
 ## Install
 
 You need Python 3.9+ and git. For the ghost's voice, install
@@ -72,6 +87,11 @@ My advice to the living: don’t prematurely prune your tools.
 
 The dates, author and commit are real: `set_http_proxy` was added and reverted
 on the same day. The feelings are Gemma's. Every run is different.
+
+A ghost is an unreliable narrator. The header line (name, file, dates, killing
+commit) comes straight from git; everything after it is the model, which is
+told not to invent facts but sometimes does anyway (in one run it claimed it
+had been reverted "twice"). Use `--offline` when you want only the facts.
 
 ## Tests
 
