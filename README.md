@@ -10,6 +10,10 @@ commit that killed it. With no model reachable it falls back to an offline
 
 One file, Python standard library only, no runtime dependencies.
 
+![git seance summoning set_http_proxy from psf/requests](docs/demo.gif)
+
+*A real run on psf/requests with gemma3:4b on a laptop CPU, long pauses trimmed.*
+
 ## Why an open model
 
 Your git history is your team's private diary: names, dates, half-finished
@@ -20,17 +24,44 @@ key, no account, no usage bill, and it works on a private repo on a plane. It
 also means anyone can audit, swap or fine-tune the medium. And if no model is
 around at all, planchette mode still tells you the facts.
 
-## Install
+## Quick start
 
-You need Python 3.9+ and git. For the ghost's voice, install
-[Ollama](https://ollama.com) and pull Gemma:
+You need **Python 3.9+** and **git**. Nothing to `pip install`.
 
-```bash
-ollama pull gemma3:4b
-```
+1. Get git seance:
 
-Then grab `git_seance.py`. That's it. Optionally copy `.env.example` to `.env`
-beside the script to change provider or model (`.env` is gitignored).
+   ```bash
+   git clone https://github.com/DrunkWiz/git-seance
+   cd git-seance
+   ```
+
+2. Give the ghosts a voice: install [Ollama](https://ollama.com) (Windows,
+   macOS or Linux), make sure it is running (the desktop app starts it; on
+   Linux run `ollama serve`), then pull Gemma (about 3.3 GB):
+
+   ```bash
+   ollama pull gemma3:4b
+   ```
+
+   Skip this step if you only want `--offline` mode.
+
+3. Find a repo with some history. Any local git repo works; to reproduce the
+   demo, clone requests next to git seance:
+
+   ```bash
+   git clone https://github.com/psf/requests ../requests
+   ```
+
+4. Visit the graveyard, then summon someone:
+
+   ```bash
+   python git_seance.py --list -n 400 ../requests
+   python git_seance.py --summon set_http_proxy --ask "do you forgive them?" -n 400 ../requests
+   ```
+
+On macOS/Linux use `python3` if `python` is not Python 3. To change provider
+or model, copy `.env.example` to `.env` beside the script (`.env` is
+gitignored).
 
 ## Usage
 
