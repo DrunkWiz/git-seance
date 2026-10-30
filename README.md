@@ -10,11 +10,6 @@ commit that killed it. With no model reachable it falls back to an offline
 
 One file, Python standard library only, no runtime dependencies.
 
-![git seance summoning set_http_proxy from psf/requests](docs/demo.gif)
-
-*A real run on psf/requests with gemma3:4b on a laptop CPU; long pauses
-trimmed. [MP4 version](docs/demo.mp4).*
-
 ## Why an open model
 
 Your git history is your team's private diary: names, dates, half-finished
